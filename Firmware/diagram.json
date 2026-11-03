@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "author": "Tim Kelompok 206",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    { "type": "wokwi-potentiometer", "id": "pot_ph", "top": -150, "left": -150, "attrs": {} },
+    { "type": "wokwi-potentiometer", "id": "pot_turb", "top": -150, "left": 100, "attrs": {} },
+    { "type": "wokwi-servo", "id": "servo_pakan", "top": -150, "left": 300, "attrs": {} },
+    { "type": "wokwi-pushbutton", "id": "btn_manual", "top": 100, "left": -150, "attrs": { "color": "green" } },
+    { "type": "wokwi-led", "id": "led_alert", "top": 50, "left": -100, "attrs": { "color": "red" } }
+  ],
+  "connections": [
+    [ "esp:3V3", "pot_ph:VCC", "red", [ "v0" ] ],
+    [ "esp:GND", "pot_ph:GND", "black", [ "v0" ] ],
+    [ "esp:34", "pot_ph:SIG", "green", [ "v0" ] ],
+
+    [ "esp:3V3", "pot_turb:VCC", "red", [ "v0" ] ],
+    [ "esp:GND", "pot_turb:GND", "black", [ "v0" ] ],
+    [ "esp:35", "pot_turb:SIG", "blue", [ "v0" ] ],
+
+    [ "esp:3V3", "servo_pakan:V+", "red", [ "v0" ] ],
+    [ "esp:GND", "servo_pakan:GND", "black", [ "v0" ] ],
+    [ "esp:18", "servo_pakan:PWM", "orange", [ "v0" ] ],
+
+    [ "esp:GND", "btn_manual:2.L", "black", [ "v0" ] ],
+    [ "esp:4", "btn_manual:1.L", "green", [ "v0" ] ],
+
+    [ "esp:GND", "led_alert:C", "black", [ "v0" ] ],
+    [ "esp:2", "led_alert:A", "red", [ "v0" ] ]
+  ]
+}
